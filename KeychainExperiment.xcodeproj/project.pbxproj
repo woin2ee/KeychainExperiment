@@ -14,19 +14,10 @@
 		DA90698A29C8443800535A3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA90698929C8443800535A3D /* Assets.xcassets */; };
 		DA90698D29C8443800535A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA90698B29C8443800535A3D /* LaunchScreen.storyboard */; };
 		DA90699829C8443800535A3D /* KeychainExperimentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA90699729C8443800535A3D /* KeychainExperimentTests.swift */; };
-		DA9069A229C8443800535A3D /* KeychainExperimentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9069A129C8443800535A3D /* KeychainExperimentUITests.swift */; };
-		DA9069A429C8443800535A3D /* KeychainExperimentUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9069A329C8443800535A3D /* KeychainExperimentUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		DA90699429C8443800535A3D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DA90697529C8443600535A3D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = DA90697C29C8443600535A3D;
-			remoteInfo = KeychainExperiment;
-		};
-		DA90699E29C8443800535A3D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DA90697529C8443600535A3D /* Project object */;
 			proxyType = 1;
@@ -46,9 +37,6 @@
 		DA90698E29C8443800535A3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA90699329C8443800535A3D /* KeychainExperimentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeychainExperimentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA90699729C8443800535A3D /* KeychainExperimentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainExperimentTests.swift; sourceTree = "<group>"; };
-		DA90699D29C8443800535A3D /* KeychainExperimentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeychainExperimentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DA9069A129C8443800535A3D /* KeychainExperimentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainExperimentUITests.swift; sourceTree = "<group>"; };
-		DA9069A329C8443800535A3D /* KeychainExperimentUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainExperimentUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,13 +54,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DA90699A29C8443800535A3D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -81,7 +62,6 @@
 			children = (
 				DA90697F29C8443600535A3D /* KeychainExperiment */,
 				DA90699629C8443800535A3D /* KeychainExperimentTests */,
-				DA9069A029C8443800535A3D /* KeychainExperimentUITests */,
 				DA90697E29C8443600535A3D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -91,7 +71,6 @@
 			children = (
 				DA90697D29C8443600535A3D /* KeychainExperiment.app */,
 				DA90699329C8443800535A3D /* KeychainExperimentTests.xctest */,
-				DA90699D29C8443800535A3D /* KeychainExperimentUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -116,15 +95,6 @@
 				DA90699729C8443800535A3D /* KeychainExperimentTests.swift */,
 			);
 			path = KeychainExperimentTests;
-			sourceTree = "<group>";
-		};
-		DA9069A029C8443800535A3D /* KeychainExperimentUITests */ = {
-			isa = PBXGroup;
-			children = (
-				DA9069A129C8443800535A3D /* KeychainExperimentUITests.swift */,
-				DA9069A329C8443800535A3D /* KeychainExperimentUITestsLaunchTests.swift */,
-			);
-			path = KeychainExperimentUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,24 +135,6 @@
 			productReference = DA90699329C8443800535A3D /* KeychainExperimentTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		DA90699C29C8443800535A3D /* KeychainExperimentUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DA9069AD29C8443800535A3D /* Build configuration list for PBXNativeTarget "KeychainExperimentUITests" */;
-			buildPhases = (
-				DA90699929C8443800535A3D /* Sources */,
-				DA90699A29C8443800535A3D /* Frameworks */,
-				DA90699B29C8443800535A3D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				DA90699F29C8443800535A3D /* PBXTargetDependency */,
-			);
-			name = KeychainExperimentUITests;
-			productName = KeychainExperimentUITests;
-			productReference = DA90699D29C8443800535A3D /* KeychainExperimentUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -197,10 +149,6 @@
 						CreatedOnToolsVersion = 14.2;
 					};
 					DA90699229C8443800535A3D = {
-						CreatedOnToolsVersion = 14.2;
-						TestTargetID = DA90697C29C8443600535A3D;
-					};
-					DA90699C29C8443800535A3D = {
 						CreatedOnToolsVersion = 14.2;
 						TestTargetID = DA90697C29C8443600535A3D;
 					};
@@ -221,7 +169,6 @@
 			targets = (
 				DA90697C29C8443600535A3D /* KeychainExperiment */,
 				DA90699229C8443800535A3D /* KeychainExperimentTests */,
-				DA90699C29C8443800535A3D /* KeychainExperimentUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -238,13 +185,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		DA90699129C8443800535A3D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DA90699B29C8443800535A3D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -272,15 +212,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DA90699929C8443800535A3D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DA9069A229C8443800535A3D /* KeychainExperimentUITests.swift in Sources */,
-				DA9069A429C8443800535A3D /* KeychainExperimentUITestsLaunchTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -288,11 +219,6 @@
 			isa = PBXTargetDependency;
 			target = DA90697C29C8443600535A3D /* KeychainExperiment */;
 			targetProxy = DA90699429C8443800535A3D /* PBXContainerItemProxy */;
-		};
-		DA90699F29C8443800535A3D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = DA90697C29C8443600535A3D /* KeychainExperiment */;
-			targetProxy = DA90699E29C8443800535A3D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -526,42 +452,6 @@
 			};
 			name = Release;
 		};
-		DA9069AE29C8443800535A3D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2AVC8X7323;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.woin2ee.KeychainExperimentUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = KeychainExperiment;
-			};
-			name = Debug;
-		};
-		DA9069AF29C8443800535A3D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2AVC8X7323;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.woin2ee.KeychainExperimentUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = KeychainExperiment;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -588,15 +478,6 @@
 			buildConfigurations = (
 				DA9069AB29C8443800535A3D /* Debug */,
 				DA9069AC29C8443800535A3D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		DA9069AD29C8443800535A3D /* Build configuration list for PBXNativeTarget "KeychainExperimentUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				DA9069AE29C8443800535A3D /* Debug */,
-				DA9069AF29C8443800535A3D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
