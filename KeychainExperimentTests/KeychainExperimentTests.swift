@@ -20,6 +20,27 @@ final class KeychainExperimentTests: XCTestCase {
         deleteAllInDefaultClass()
     }
     
+    // MARK: Save
+    
+    func testSaveItemWhenSetNilAttribute() {
+        // Arrange
+        let saveQuery: [CFString: Any] = [kSecClass: defaultClass as Any,
+                                    kSecAttrService: defaultService as Any,
+                                    kSecAttrAccount: Optional<String>.none as Any, // set nil
+                                      kSecValueData: defaultPasswordData1 as Any]
+        
+        // Act
+        let status = SecItemAdd(saveQuery as CFDictionary, nil)
+        
+        // Assert
+        if status != errSecSuccess {
+            XCTAssert(true)
+            XCTAssertEqual(status, errSecParam)
+        } else {
+            XCTFail("저장 실패가 예상됐으나 성공함.")
+        }
+    }
+    
     // MARK: Search
     
     func testItemSearch() {
