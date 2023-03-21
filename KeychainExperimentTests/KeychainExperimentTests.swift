@@ -93,6 +93,32 @@ final class KeychainExperimentTests: XCTestCase {
         XCTAssertEqual(maybePasswordData2 as Data, defaultPasswordData2)
     }
     
+    func testSearchItemWhenAttributeSetToOptional() {
+        // Arrange
+        let saveQuery: [CFString: Any] = [kSecClass: defaultClass as Any,
+                                    kSecAttrService: defaultService as Any,
+                                    kSecAttrAccount: Optional.some(defaultAccount1) as Any, // optional attr
+                                      kSecValueData: Optional.some(defaultPasswordData1) as Any] // optional data
+        let searchQuery: [CFString: Any] = [kSecClass: defaultClass as Any,
+                                      kSecAttrService: defaultService as Any,
+                                      kSecAttrAccount: defaultAccount1 as Any, // non optional attr
+                                       kSecReturnData: true]
+        var result: AnyObject?
+        
+        // Act
+        if SecItemAdd(saveQuery as CFDictionary, nil) != errSecSuccess {
+            XCTFail("저장 실패.")
+        }
+        let status = SecItemCopyMatching(searchQuery as CFDictionary, &result)
+        
+        // Assert
+        if status != errSecSuccess {
+            let errorMessage = SecCopyErrorMessageString(status, nil)
+            XCTFail("검색 실패. \(errorMessage!)")
+        }
+        XCTAssertEqual(result as? Data, defaultPasswordData1)
+    }
+    
     // MARK: Delete
     
     func testDeleteAll() {
