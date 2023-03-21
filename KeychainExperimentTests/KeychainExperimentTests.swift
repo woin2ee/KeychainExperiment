@@ -22,22 +22,23 @@ final class KeychainExperimentTests: XCTestCase {
     
     // MARK: Save
     
-    func testSaveItemWhenSetNilAttribute() {
+    func testSaveItemWhenExistNilAttribute() {
         // Arrange
         let saveQuery: [CFString: Any] = [kSecClass: defaultClass as Any,
                                     kSecAttrService: defaultService as Any,
-                                    kSecAttrAccount: Optional<String>.none as Any, // set nil
+                                    kSecAttrAccount: defaultAccount1 as Any,
+                                      kSecAttrLabel: Optional<String>.none as Any, // set nil
                                       kSecValueData: defaultPasswordData1 as Any]
         
         // Act
         let status = SecItemAdd(saveQuery as CFDictionary, nil)
         
         // Assert
-        if status != errSecSuccess {
+        if status == errSecSuccess {
+            XCTFail("저장 실패가 예상됐으나 성공함.")
+        } else {
             XCTAssert(true)
             XCTAssertEqual(status, errSecParam)
-        } else {
-            XCTFail("저장 실패가 예상됐으나 성공함.")
         }
     }
     
