@@ -42,6 +42,32 @@ final class KeychainExperimentTests: XCTestCase {
         }
     }
     
+    func testSaveInteger() {
+        // Arrange
+        var number = 1111
+        let numberData = Data.init(bytes: &number, count: MemoryLayout.size(ofValue: number))
+        let saveQuery: [CFString: Any] = [kSecClass: defaultClass as Any,
+                                    kSecAttrService: defaultService as Any,
+                                    kSecAttrAccount: defaultAccount1 as Any,
+                                      kSecValueData: numberData]
+        let searchQuery: [CFString: Any] = [kSecClass: defaultClass as Any,
+                                      kSecAttrService: defaultService as Any,
+                                      kSecAttrAccount: defaultAccount1 as Any,
+                                       kSecReturnData: true]
+        var numberResult: AnyObject? = nil
+        
+        // Act
+        let status = SecItemAdd(saveQuery as CFDictionary, nil)
+        if status != errSecSuccess {
+            let errorMessage = SecCopyErrorMessageString(status, nil)
+            XCTFail("저장 실패. \(errorMessage!)")
+        }
+        
+        // Assert
+        XCTAssertEqual(SecItemCopyMatching(searchQuery as CFDictionary, &numberResult), errSecSuccess)
+        XCTAssertEqual(numberResult as? Data, numberData)
+    }
+    
     // MARK: Search
     
     func testItemSearch() {
