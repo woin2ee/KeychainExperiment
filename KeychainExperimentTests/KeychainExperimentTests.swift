@@ -119,6 +119,23 @@ final class KeychainExperimentTests: XCTestCase {
         XCTAssertEqual(result as? Data, defaultPasswordData1)
     }
     
+    func testSearchItemWhenExistNilAttribute() {
+        // Arrange
+        prepareDefaultItem1() // Only One item
+        let searchQuery: [CFString: Any] = [kSecClass: defaultClass as Any,
+                                      kSecAttrService: defaultService as Any,
+                                      kSecAttrAccount: Optional<Any>.none as Any, // nil attr (success even if not exist)
+                                       kSecReturnData: true]
+        var result: AnyObject? = nil
+        
+        // Act
+        let status = SecItemCopyMatching(searchQuery as CFDictionary, &result)
+        
+        // Assert
+        XCTAssertEqual(status, errSecParam)
+        XCTAssertNil(result)
+    }
+    
     // MARK: Delete
     
     func testDeleteAll() {
