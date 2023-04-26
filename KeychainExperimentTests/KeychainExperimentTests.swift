@@ -178,6 +178,22 @@ final class KeychainExperimentTests: XCTestCase {
         XCTAssertNil(maybeNilResult)
     }
     
+    func testDeleteWhenNoItem() {
+        // Arrange
+        let query: [CFString: Any] = [kSecClass: defaultClass as Any,
+                                kSecAttrService: defaultService as Any,
+                                kSecAttrAccount: defaultAccount1 as Any,
+                                 kSecReturnData: true]
+        var result: CFTypeRef?
+        
+        // Act
+        let status = SecItemCopyMatching(query as CFDictionary, &result)
+        
+        // Assert
+        XCTAssertNil(result)
+        XCTAssertEqual(status, errSecItemNotFound)
+    }
+    
     // MARK: Update
     
     func testUpdateDataOfItem() {
