@@ -68,6 +68,32 @@ final class KeychainExperimentTests: XCTestCase {
         XCTAssertEqual(numberResult as? Data, numberData)
     }
     
+    func testSaveWhenAllreadyExistAccount() {
+        // Arrange
+        let data1 = "data1".data(using: .utf8, allowLossyConversion: false)!
+        let data2 = "data2".data(using: .utf8, allowLossyConversion: false)!
+        let saveQuery1: [CFString: Any] = [kSecClass: kSecClassGenericPassword,
+                                     kSecAttrAccount: "Account",
+                                       kSecValueData: data1]
+        let saveQuery2: [CFString: Any] = [kSecClass: kSecClassGenericPassword,
+                                     kSecAttrAccount: "Account",
+                                       kSecAttrLabel: "Label",
+                                       kSecValueData: data2]
+        
+        // Act
+        if SecItemAdd(saveQuery1 as CFDictionary, nil) != errSecSuccess {
+            XCTFail("저장실패.")
+        }
+        let status = SecItemAdd(saveQuery2 as CFDictionary, nil)
+        
+        // Assert
+        if status != errSecSuccess {
+            XCTAssert(true)
+        } else {
+            XCTFail("중복된 Account 로 인해 실패해야 하는데 저장에 성공함.")
+        }
+    }
+    
     // MARK: Search
     
     func testItemSearch() {
@@ -117,6 +143,10 @@ final class KeychainExperimentTests: XCTestCase {
         let item2Pointer = CFArrayGetValueAtIndex(resultArray, 1)
         let maybePasswordData2 = unsafeBitCast(item2Pointer, to: CFData.self)
         XCTAssertEqual(maybePasswordData2 as Data, defaultPasswordData2)
+        
+        let arr = result as! Array<Data>
+        XCTAssertEqual(arr[0], defaultPasswordData1)
+        XCTAssertEqual(arr[1], defaultPasswordData2)
     }
     
     func testSearchItemWhenAttributeSetToOptional() {
